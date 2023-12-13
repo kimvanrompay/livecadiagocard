@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+APP_ROOT = File.expand_path('..', __dir__)
+Dir.chdir(APP_ROOT) do
+  # Install required gems if needed
+  system('bundle check') || system('bundle install')
+
+  # Check Yarn packages if using webpacker or jsbundling
+  system('bin/yarn') if Dir.exist?('bin/yarn')
+
+  # Use foreman to start up the application's processes as listed in the Procfile.dev
+  exec 'foreman start -f Procfile.dev'
+end
