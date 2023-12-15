@@ -10,5 +10,8 @@
     "type": "git",
     "url": "https://github.com/kimvanrompay/livecadiagocard.git"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "node": "20.0.0"
+  }
 }
